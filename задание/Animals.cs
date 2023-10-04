@@ -16,10 +16,36 @@ namespace AnimalsTask
         public double SquareArea { get; set; }
         public string[] Diet { get; set; }
         public string Sound { get; set; }
+        
 
-        public void Eat()
+        public Animals(string name, int age, string species, string biome, double areaPerIndividual, string[] diet, string sound)
         {
-            Console.WriteLine($"Животное {Name} ест");
+            Name = name;
+            Age = age;
+            Species = species;
+            Biome = biome;
+            SquareArea = areaPerIndividual;
+            Diet = diet;
+            Sound = sound;
+        }
+       
+        public string Eat(string food)
+        {
+            bool result = false;
+
+            for( int i= 0; i< Diet.Length; i++ )
+            {
+                result = result || (Diet[i] == food);
+            }
+
+            if(result == true)    
+            {
+                return  $"Животное {Name} ест {food}";
+            }
+            else
+            {
+                return $"Животное {Name} не ест {food}";
+            }
         }
 
         public void MakeSound()

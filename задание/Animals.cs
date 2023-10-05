@@ -31,14 +31,19 @@ namespace AnimalsTask
        
         public string Eat(string food)
         {
-            bool result = false;
+            bool canElephantEatThis = false;
 
             for( int i= 0; i< Diet.Length; i++ )
             {
-                result = result || (Diet[i] == food);
+                canElephantEatThis = Diet[i] == food;
+
+                if (canElephantEatThis == true)
+                {
+                    break;
+                }
             }
 
-            if(result == true)    
+            if(canElephantEatThis == true)    
             {
                 return  $"Животное {Name} ест {food}";
             }
